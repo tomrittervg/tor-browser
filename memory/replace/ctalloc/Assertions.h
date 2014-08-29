@@ -40,8 +40,8 @@
 
 */
 
-#include "wtf/Compiler.h"
-#include "wtf/WTFExport.h"
+#include "Compiler.h"
+#include "WTFExport.h"
 
 // Users must test "#if ENABLE(ASSERT)", which helps ensure that code
 // testing this macro has included this header.

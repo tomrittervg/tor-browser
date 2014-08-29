@@ -29,7 +29,7 @@
  */
 
 #include "config.h"
-#include "wtf/PartitionAlloc.h"
+#include "PartitionAlloc.h"
 
 #include <string.h>
 
