@@ -4,7 +4,13 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-# Build jemalloc3 as a replace-malloc lib when building with mozjemalloc
-if not CONFIG['MOZ_JEMALLOC']:
-    DIRS += ['jemalloc']
-DIRS += ['ctalloc']
+MODULE = 'memory'
+
+LIBRARY_NAME = 'replace_ctalloc'
+
+CPP_SOURCES += [
+    'malloc.cpp', 
+    'PartitionAlloc.cpp', 
+    'PageAllocator.cpp',
+    'AddressSpaceRandomization.cpp',
+    ]
