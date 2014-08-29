@@ -29,10 +29,10 @@
  */
 
 #include "config.h"
-#include "wtf/PageAllocator.h"
+#include "PageAllocator.h"
 
-#include "wtf/AddressSpaceRandomization.h"
-#include "wtf/Assertions.h"
+#include "AddressSpaceRandomization.h"
+#include "Assertions.h"
 
 #include <limits.h>
 

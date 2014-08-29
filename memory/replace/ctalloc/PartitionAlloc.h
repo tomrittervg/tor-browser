@@ -96,12 +96,12 @@
 // - Better checking for wild pointers in free().
 // - Better freelist masking function to guarantee fault on 32-bit.
 
-#include "wtf/Assertions.h"
-#include "wtf/BitwiseOperations.h"
-#include "wtf/ByteSwap.h"
-#include "wtf/CPU.h"
-#include "wtf/PageAllocator.h"
-#include "wtf/SpinLock.h"
+#include "Assertions.h"
+#include "BitwiseOperations.h"
+#include "ByteSwap.h"
+#include "CPU.h"
+#include "PageAllocator.h"
+#include "SpinLock.h"
 
 #include <limits.h>
 

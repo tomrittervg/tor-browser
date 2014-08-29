@@ -30,8 +30,8 @@
 #ifndef Atomics_h
 #define Atomics_h
 
-#include "wtf/Assertions.h"
-#include "wtf/CPU.h"
+#include "Assertions.h"
+#include "CPU.h"
 
 #include <stdint.h>
 
