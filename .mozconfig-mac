@@ -3,7 +3,7 @@ export CROSS_COMPILE=1
 
 SYSROOTDIR=/usr/lib/apple/SDKs/MacOSX10.6.sdk
 ROOTDIR="$HOME/build/x-tools/x86_64-apple-darwin10/bin"
-FLAGS="-arch x86_64 -isysroot $SYSROOTDIR"
+FLAGS="-arch x86_64 -isysroot $SYSROOTDIR -fPIE"
 
 # Ideally we use the patch provided in
 # https://bugzilla.mozilla.org/show_bug.cgi?id=933071 to get rid of our path
