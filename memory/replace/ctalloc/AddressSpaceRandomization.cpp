@@ -3,11 +3,11 @@
 // found in the LICENSE file.
 
 #include "config.h"
-#include "wtf/AddressSpaceRandomization.h"
+#include "AddressSpaceRandomization.h"
 
-#include "wtf/PageAllocator.h"
-#include "wtf/ProcessID.h"
-#include "wtf/SpinLock.h"
+#include "PageAllocator.h"
+#include "ProcessID.h"
+#include "SpinLock.h"
 
 namespace WTF {
 
