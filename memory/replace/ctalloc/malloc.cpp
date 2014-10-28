@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 #include "config.h"
-#include "wtf/PartitionAlloc.h"
+#include "PartitionAlloc.h"
 #include <string.h>
 
 static const malloc_table_t *funcs = NULL;

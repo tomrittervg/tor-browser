@@ -31,9 +31,9 @@
 #ifndef WTF_PageAllocator_h
 #define WTF_PageAllocator_h
 
-#include "wtf/Assertions.h"
-#include "wtf/CPU.h"
-#include "wtf/WTFExport.h"
+#include "Assertions.h"
+#include "CPU.h"
+#include "WTFExport.h"
 #include <stdint.h>
 
 namespace WTF {
