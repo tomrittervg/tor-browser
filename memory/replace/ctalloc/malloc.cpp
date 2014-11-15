@@ -3,6 +3,7 @@
 #include <stdio.h>
 
 #include "config.h"
+#include "PageAllocator.h"
 #include "PartitionAlloc.h"
 #include <string.h>
 
@@ -79,12 +80,6 @@ void* replace_calloc(size_t nmemb, size_t size)
   return ret;
 }
 
-void *replace_valloc(size_t size)
-{
-  printf("AH!!!! valloc.\n");
-  return NULL;
-}
-
 void *replace_memalign(size_t alignment, size_t size)
 {
   size_t remainder = size % alignment;
@@ -92,20 +87,34 @@ void *replace_memalign(size_t alignment, size_t size)
   return replace_malloc(size + remainder);
 }
 
-void *replace_aligned_alloc(size_t alignment, size_t size)
-{
-  printf("AH!!! aligned_alloc\n");
-  return NULL;
-}
-
+//===============
+//Copied from replace_malloc.h
 int replace_posix_memalign(void **ptr, size_t alignment, size_t size)
 {
-  size_t remainder = size % alignment;
-  *ptr = replace_malloc(size + remainder);
-  if(*ptr == NULL)
+  if (size == 0) {
+    *ptr = NULL;
+    return 0;
+  }
+  /* alignment must be a power of two and a multiple of sizeof(void *) */
+  if (((alignment - 1) & alignment) != 0 || (alignment % sizeof(void *)))
     return -1;
-  return 0;
+  *ptr = replace_memalign(alignment, size);
+  return *ptr ? 0 : -1;
 }
+
+void *replace_aligned_alloc(size_t alignment, size_t size)
+{
+  /* size should be a multiple of alignment */
+  if (size % alignment)
+    return NULL;
+  return replace_memalign(alignment, size);
+}
+
+void *replace_valloc(size_t size)
+{
+  return replace_memalign(WTF::kSystemPageSize, size);
+}
+//===============
 
 size_t replace_malloc_usable_size(usable_ptr_t ptr)
 {
