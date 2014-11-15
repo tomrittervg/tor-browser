@@ -109,7 +109,8 @@ int replace_posix_memalign(void **ptr, size_t alignment, size_t size)
 
 size_t replace_malloc_usable_size(usable_ptr_t ptr)
 {
-  size_t s = partitionAllocGetSize(ptr);
+  //PartitionAlloc does not expect const pointers and clang complains. Rather than mess with that, just cast it
+  size_t s = partitionAllocGetSize((void*)ptr);
   return s;
 }
 
